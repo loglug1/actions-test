@@ -10,10 +10,18 @@ jobs:
     runs-on: ubuntu-slim # Specify the runner environment
 
     steps:
-    - name: Remove unnecessary files
+    - name: Install Dependencies
       run: |
-        sudo rm -rf /usr/share/dotnet
-        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-    - name: Show Diskspace
-      run: |
-        df -h
+        sudo apt-get update
+        sudo apt-get install --install-no-recommends -y iptables
+    
+    - name: Set up Docker
+      uses: docker/setup-docker-action@v4
+      with:
+        rootless: true
+    
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }} # Use your GitHub Secrets
