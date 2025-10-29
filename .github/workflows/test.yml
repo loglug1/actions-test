@@ -7,12 +7,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Specify the runner environment
+    runs-on: ubuntu-slim # Specify the runner environment
 
     steps:
-    - name: Locate Bloat
-      run: |
-        du -h /
     - name: Remove unnecessary files
       run: |
         sudo rm -rf /usr/share/dotnet
