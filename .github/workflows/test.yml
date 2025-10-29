@@ -1,0 +1,15 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Specify the runner environment
+
+    steps:
+    - name: Show Diskspace
+      run: |
+        df -h
