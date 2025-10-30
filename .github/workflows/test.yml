@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Show Directory List
         run: |
-          sudo du -h -d 1 /usr/share
+          sudo du -h -d 1 /usr/share | sort -h
+          echo "$AGENT_TOOLSDIRECTORY"
 
       - name: Check Free Space
         run: |
@@ -22,6 +23,7 @@ jobs:
         run: |
           #sudo rm -rf /usr/share/dotnet
           #sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          #sudo rm -rf /usr/share/swift
       
       - name: Check Free Space
         run: |
