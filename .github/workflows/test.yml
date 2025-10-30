@@ -20,8 +20,9 @@ jobs:
   
       - name: Cleanup
         run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          #sudo rm -rf /usr/share/dotnet
+          #sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          sudo ls -lathr /usr/share
       
       - name: Check Free Space
         run: |
