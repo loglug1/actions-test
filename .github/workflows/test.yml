@@ -10,10 +10,19 @@ jobs:
     runs-on: ubuntu-latest # Specify the runner environment
 
     steps:
-    - name: Show Directory List
-      run: |
-        sudo ls -lathr /
-    
-    - name: Check Free Space
-      run: |
-        sudo df -h
+      - name: Show Directory List
+        run: |
+          sudo ls -lathr /
+
+      - name: Check Free Space
+        run: |
+          sudo df -h
+  
+      - name: Cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      
+      - name: Check Free Space
+        run: |
+          sudo df -h
