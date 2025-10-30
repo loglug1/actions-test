@@ -21,9 +21,9 @@ jobs:
   
       - name: Cleanup
         run: |
-          #sudo rm -rf /usr/share/dotnet
-          #sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-          #sudo rm -rf /usr/share/swift
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          sudo rm -rf /usr/share/swift
       
       - name: Check Free Space
         run: |
